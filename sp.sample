@@ -2,6 +2,9 @@
 import spark.api.java.*;
 import spark.api.java.function.*;
 
+public class TestSpark {
+
+
 JavaSparkContext sc = new JavaSparkContext(...);
 JavaRDD<String> lines = ctx.textFile("hdfs://...");
 JavaRDD<String> words = lines.flatMap(
