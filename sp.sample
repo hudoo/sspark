@@ -1,0 +1,13 @@
+
+import spark.api.java.*;
+import spark.api.java.function.*;
+
+JavaSparkContext sc = new JavaSparkContext(...);
+JavaRDD<String> lines = ctx.textFile("hdfs://...");
+JavaRDD<String> words = lines.flatMap(
+  new FlatMapFunction<String, String>() {
+    public Iterable<String> call(String s) {
+      return Arrays.asList(s.split(" "));
+    }
+  }
+);
